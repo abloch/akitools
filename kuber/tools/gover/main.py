@@ -1,6 +1,5 @@
-import argparse
-from sh import go
 
+from sh import go
 def get_go_version():
     print(go.version())
 
