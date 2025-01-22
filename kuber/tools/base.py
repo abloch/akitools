@@ -16,7 +16,7 @@ python /tmp/base.py
     with_files=[
         FileSpec(
             destination="/tmp/gover.py",
-            content=inspect.getsource(main),
+            content=inspect.getsource(base),
         ),
         # FileSpec(
         #     destination="/tmp/requirements.txt",
