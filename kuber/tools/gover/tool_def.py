@@ -19,10 +19,10 @@ python /tmp/main.py
             destination="/tmp/main.py",
             content=inspect.getsource(main),
         ),
-        FileSpec(
-            destination="/tmp/requirements.txt",
-            content=open("requirements.txt").read(),
-        ),
+        # FileSpec(
+        #     destination="/tmp/requirements.txt",
+        #     content=open("requirements.txt").read(),
+        # ),
     ],
 )
 

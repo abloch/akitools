@@ -1,7 +1,8 @@
+import subprocess
 
-from sh import go
 def get_go_version():
-    print(go.version())
+    ret = subprocess.check_output(["go", "version"])
+    print(ret.decode("utf-8"))
 
 
 if __name__ == "__main__":
