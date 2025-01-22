@@ -15,7 +15,7 @@ python /tmp/main.py
 """,
     with_files=[
         FileSpec(
-            destination="/tmp/main.py",
+            destination="/tmp/gover.py",
             content=inspect.getsource(main),
         ),
         # FileSpec(
