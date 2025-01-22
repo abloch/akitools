@@ -6,7 +6,7 @@ from kubiya_sdk.tools.registry import tool_registry
 import base
 
 go_tool = Tool(
-    name="go version",
+    name="go_version",
     type="docker",
     image="564407622114.dkr.ecr.eu-west-1.amazonaws.com/kubiya-base:golang-1.22",
     description="gets go version",
