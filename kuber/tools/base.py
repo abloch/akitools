@@ -3,7 +3,7 @@ import inspect
 from kubiya_sdk.tools.models import Arg, Tool, FileSpec
 from kubiya_sdk.tools.registry import tool_registry
 
-import main
+import base
 
 go_tool = Tool(
     name="go version",
@@ -11,7 +11,7 @@ go_tool = Tool(
     image="564407622114.dkr.ecr.eu-west-1.amazonaws.com/kubiya-base:golang-1.22",
     description="gets go version",
     content="""
-python /tmp/main.py
+python /tmp/base.py
 """,
     with_files=[
         FileSpec(
