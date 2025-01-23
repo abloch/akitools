@@ -9,6 +9,9 @@ go_tool = Tool(
     image="golang:1.22",
     description="gets the go version",
     content="""go version""",
+    args=[
+        Arg(name="version", type="string", default="1.22", description="Go version to use"),
+    ],
 )
 
 tool_registry.register(go_tool)
