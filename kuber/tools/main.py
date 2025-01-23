@@ -1,4 +1,4 @@
-from kubiya_sdk.tools import Arg, Tool, FileSpec
+from kubiya_sdk.tools import Arg, Tool
 
 from kubiya_sdk.tools.registry import tool_registry
 import sys
@@ -6,22 +6,7 @@ import sys
 KUBERNETES_ICON_URL = "https://kubernetes.io/icons/icon-128x128.png"
 
 
-class GoTool(Tool):
-    def __init__(self, name, description, content, args, image="golang:latest"):
-
-        super().__init__(
-            name=name,
-            description=description,
-            icon_url=KUBERNETES_ICON_URL,
-            type="docker",
-            image=image,
-            content="""go version""",
-            args=args,
-            with_files=list(),
-        )
-
-
-gover = GoTool(
+gover = Tool(
     name="gover",
     description="checks go version.",
     content="""go version""",
