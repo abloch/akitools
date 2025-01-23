@@ -1,5 +1,5 @@
 from kubiya_sdk.tools import Arg
-from .base import GoTool
+from base import GoTool
 from kubiya_sdk.tools.registry import tool_registry
 import sys
 
