@@ -10,7 +10,7 @@ go_tool = Tool(
     description="gets the go version",
     content="""go version""",
     args=[
-        Arg(name="version", type="string", default="1.22", description="Go version to use"),
+         Arg(name="stam", type="str", description="just a dumb arg')", required=False),
     ],
 )
 
