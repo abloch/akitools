@@ -18,7 +18,7 @@
         {
           "source": null,
           "destination": "/tmp/gover.py",
-          "content": "import inspect\n\nfrom kubiya_sdk.tools.models import Arg, Tool, FileSpec\nfrom kubiya_sdk.tools.registry import tool_registry\n\nimport base\n\ngo_tool = Tool(\n    name=\"go_version\",\n    type=\"docker\",\n    image=\"564407622114.dkr.ecr.eu-west-1.amazonaws.com/kubiya-base:golang-1.22\",\n    description=\"gets go version\",\n    content=\"\"\"\npython /tmp/base.py\n\"\"\",\n    with_files=[\n        FileSpec(\n            destination=\"/tmp/gover.py\",\n            content=inspect.getsource(base),\n        ),\n        # FileSpec(\n        #     destination=\"/tmp/requirements.txt\",\n        #     content=open(\"requirements.txt\").read(),\n        # ),\n    ],\n)\n\ntool_registry.register(go_tool)\n"
+          "content": "import inspect\n\nfrom kubiya_sdk.tools.models import Arg, Tool, FileSpec\nfrom kubiya_sdk.tools.registry import tool_registry\n\nimport base\n\ngo_tool = Tool(\n    name=\"go_version\",\n    type=\"docker\",\n    image=\"564407622114.dkr.ecr.eu-west-1.amazonaws.com/kubiya-base:golang-1.22\",\n    description=\"gets go version\",\n    content=\"\"\"\npython /tmp/base.py\n\"\"\",\n    with_files=[\n        FileSpec(\n            destination=\"/tmp/gover.py\",\n            content=inspect.getsource(base),\n        ),\n        # FileSpec(\n        #     destination=\"/tmp/requirements.txt\",\n        #     content=open(\"requirements.txt\").read(),\n        # ),\n    ],\n)\n\ntool_registry.register(go_tool)\ngo_tool2 = Tool(\n    name=\"go_version2\",\n    type=\"docker\",\n    image=\"golang:1.23.5-nanoserver\",\n    description=\"gets go version2\",\n    content=\"\"\"\npython /tmp/base.py\n\"\"\",\n    with_files=[\n        FileSpec(\n            destination=\"/tmp/gover.py\",\n            content=inspect.getsource(base),\n        ),\n        # FileSpec(\n        #     destination=\"/tmp/requirements.txt\",\n        #     content=open(\"requirements.txt\").read(),\n        # ),\n    ],\n)\n\ntool_registry.register(go_tool2)\n"
         }
       ],
       "with_services": [],
@@ -32,6 +32,41 @@
       "on_build": null,
       "on_complete": null,
       "mermaid": "graph TD\n    %% Styles\n    classDef triggerClass fill:#3498db,color:#fff,stroke:#2980b9,stroke-width:2px,font-weight:bold\n    classDef paramClass fill:#2ecc71,color:#fff,stroke:#27ae60,stroke-width:2px\n    classDef execClass fill:#e74c3c,color:#fff,stroke:#c0392b,stroke-width:2px,font-weight:bold\n    classDef envClass fill:#f39c12,color:#fff,stroke:#f1c40f,stroke-width:2px\n\n    %% Main Components\n    Trigger(\"Trigger\"):::triggerClass\n    Params(\"Parameters\"):::paramClass\n    Exec(\"go_version\"):::execClass\n    Env(\"Environment\"):::envClass\n\n    %% Flow\n    Trigger --> Params --> Exec\n    Env --> Exec\n\n    %% Trigger Options\n    User(\"User\")\n    API(\"API\")\n    Webhook(\"Webhook\")\n    Cron(\"Scheduled\")\n    User --> Trigger\n    API --> Trigger\n    Webhook --> Trigger\n    Cron --> Trigger\n\n    %% Parameters\n    subgraph Parameters[\"Parameters\"]\n        direction TB\n    end\n    Parameters --- Params\n\n    %% Execution\n    subgraph Execution[\"Execution\"]\n        direction TB\n        Code(\"Script: <br/>python /tmp/base.py<br/>...\")\n        Type(\"Type: Docker\")\n        Image(\"Docker Image: 564407622114.dkr.ecr.eu-west-1.amazonaws.com/kubiya-base:golang-1.22\")\n    end\n    Execution --- Exec\n\n    %% Environment\n    subgraph Environment[\"Environment\"]\n        direction TB\n    end\n    Environment --- Env\n\n    %% Context Note\n    ContextNote(\"Parameter values can be<br/>fetched from context<br/>based on the trigger\")\n    ContextNote -.-> Params",
+      "workflow": false,
+      "metadata": {}
+    },
+    {
+      "name": "go_version2",
+      "source": null,
+      "alias": null,
+      "description": "gets go version2",
+      "type": "docker",
+      "content": "\npython /tmp/base.py\n",
+      "content_url": null,
+      "args": [],
+      "env": [],
+      "secrets": [],
+      "dependencies": null,
+      "dependencies_url": null,
+      "openapi": null,
+      "with_files": [
+        {
+          "source": null,
+          "destination": "/tmp/gover.py",
+          "content": "import inspect\n\nfrom kubiya_sdk.tools.models import Arg, Tool, FileSpec\nfrom kubiya_sdk.tools.registry import tool_registry\n\nimport base\n\ngo_tool = Tool(\n    name=\"go_version\",\n    type=\"docker\",\n    image=\"564407622114.dkr.ecr.eu-west-1.amazonaws.com/kubiya-base:golang-1.22\",\n    description=\"gets go version\",\n    content=\"\"\"\npython /tmp/base.py\n\"\"\",\n    with_files=[\n        FileSpec(\n            destination=\"/tmp/gover.py\",\n            content=inspect.getsource(base),\n        ),\n        # FileSpec(\n        #     destination=\"/tmp/requirements.txt\",\n        #     content=open(\"requirements.txt\").read(),\n        # ),\n    ],\n)\n\ntool_registry.register(go_tool)\ngo_tool2 = Tool(\n    name=\"go_version2\",\n    type=\"docker\",\n    image=\"golang:1.23.5-nanoserver\",\n    description=\"gets go version2\",\n    content=\"\"\"\npython /tmp/base.py\n\"\"\",\n    with_files=[\n        FileSpec(\n            destination=\"/tmp/gover.py\",\n            content=inspect.getsource(base),\n        ),\n        # FileSpec(\n        #     destination=\"/tmp/requirements.txt\",\n        #     content=open(\"requirements.txt\").read(),\n        # ),\n    ],\n)\n\ntool_registry.register(go_tool2)\n"
+        }
+      ],
+      "with_services": [],
+      "with_git_repo": null,
+      "with_volumes": [],
+      "entrypoint": [],
+      "icon_url": null,
+      "image": "golang:1.23.5-nanoserver",
+      "long_running": false,
+      "on_start": null,
+      "on_build": null,
+      "on_complete": null,
+      "mermaid": "graph TD\n    %% Styles\n    classDef triggerClass fill:#3498db,color:#fff,stroke:#2980b9,stroke-width:2px,font-weight:bold\n    classDef paramClass fill:#2ecc71,color:#fff,stroke:#27ae60,stroke-width:2px\n    classDef execClass fill:#e74c3c,color:#fff,stroke:#c0392b,stroke-width:2px,font-weight:bold\n    classDef envClass fill:#f39c12,color:#fff,stroke:#f1c40f,stroke-width:2px\n\n    %% Main Components\n    Trigger(\"Trigger\"):::triggerClass\n    Params(\"Parameters\"):::paramClass\n    Exec(\"go_version2\"):::execClass\n    Env(\"Environment\"):::envClass\n\n    %% Flow\n    Trigger --> Params --> Exec\n    Env --> Exec\n\n    %% Trigger Options\n    User(\"User\")\n    API(\"API\")\n    Webhook(\"Webhook\")\n    Cron(\"Scheduled\")\n    User --> Trigger\n    API --> Trigger\n    Webhook --> Trigger\n    Cron --> Trigger\n\n    %% Parameters\n    subgraph Parameters[\"Parameters\"]\n        direction TB\n    end\n    Parameters --- Params\n\n    %% Execution\n    subgraph Execution[\"Execution\"]\n        direction TB\n        Code(\"Script: <br/>python /tmp/base.py<br/>...\")\n        Type(\"Type: Docker\")\n        Image(\"Docker Image: golang:1.23.5-nanoserver\")\n    end\n    Execution --- Exec\n\n    %% Environment\n    subgraph Environment[\"Environment\"]\n        direction TB\n    end\n    Environment --- Env\n\n    %% Context Note\n    ContextNote(\"Parameter values can be<br/>fetched from context<br/>based on the trigger\")\n    ContextNote -.-> Params",
       "workflow": false,
       "metadata": {}
     }
