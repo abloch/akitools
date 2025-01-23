@@ -7,7 +7,7 @@ KUBERNETES_ICON_URL = "https://kubernetes.io/icons/icon-128x128.png"
 
 
 class GoTool(Tool):
-    def __init__(self, name, description, content, args, image="goland:latest"):
+    def __init__(self, name, description, content, args, image="golang:latest"):
 
         super().__init__(
             name=name,
