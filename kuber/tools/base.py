@@ -29,7 +29,7 @@ tool_registry.register(go_tool)
 go_tool2 = Tool(
     name="go_version2",
     type="docker",
-    image="golang:1.23.5-nanoserver",
+    image="golang:1.23.5",
     description="gets go version2",
     content="""
 python /tmp/base.py
