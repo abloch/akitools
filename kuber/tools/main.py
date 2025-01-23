@@ -11,14 +11,6 @@ gover = Tool(
     description="checks go version.",
     image="golang:latest",
     content="""go version""",
-    args=[
-        Arg(
-            name="stam",
-            type="str",
-            description="dummy",
-            required=False
-        ),
-    ],
 )
 
 try:
