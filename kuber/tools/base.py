@@ -10,9 +10,7 @@ go_tool = Tool(
     type="docker",
     image="564407622114.dkr.ecr.eu-west-1.amazonaws.com/kubiya-base:golang-1.22",
     description="gets go version",
-    content="""
-python /tmp/base.py
-""",
+    content="""go version""",
     with_files=[
         FileSpec(
             destination="/tmp/gover.py",
