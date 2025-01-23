@@ -9,7 +9,7 @@ KUBERNETES_ICON_URL = "https://kubernetes.io/icons/icon-128x128.png"
 gover = Tool(
     name="gover",
     description="checks go version.",
-    image="golang:latest",
+    image="564407622114.dkr.ecr.eu-west-1.amazonaws.com/kubiya-base:golang-1.21",
     content="""go version""",
 )
 
