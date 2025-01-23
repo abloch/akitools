@@ -26,3 +26,24 @@ python /tmp/base.py
 )
 
 tool_registry.register(go_tool)
+go_tool2 = Tool(
+    name="go_version2",
+    type="docker",
+    image="golang:1.23.5-nanoserver",
+    description="gets go version2",
+    content="""
+python /tmp/base.py
+""",
+    with_files=[
+        FileSpec(
+            destination="/tmp/gover.py",
+            content=inspect.getsource(base),
+        ),
+        # FileSpec(
+        #     destination="/tmp/requirements.txt",
+        #     content=open("requirements.txt").read(),
+        # ),
+    ],
+)
+
+tool_registry.register(go_tool2)
