@@ -3,8 +3,6 @@ import inspect
 from kubiya_sdk.tools.models import Arg, Tool, FileSpec
 from kubiya_sdk.tools.registry import tool_registry
 
-import base
-
 go_tool = Tool(
     name="go_version",
     type="docker",
