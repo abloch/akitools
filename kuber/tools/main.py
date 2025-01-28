@@ -5,7 +5,7 @@ KUBERNETES_ICON_URL = "https://storage.getlatka.com/images/kubiya.ai.png"
 
 
 onboarder = Tool(
-    name="onb",
+    name="onborader",
     description="onboard a new organization to kubiya",
     image="curlimages/curl",
     content="""curl https://api.kubiya.ai/org -H Authorization "UserKey $KUBIYA_API_TOKEN" """,
