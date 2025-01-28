@@ -10,6 +10,20 @@ onboarder = Tool(
     image="ellerbrock/alpine-bash-curl-ssl",
     content="""bash -c 'curl https://api.kubiya.ai/api/v1/org -H "Authorization: UserKey ${KUBIYA_API_KEY}"' """,
     secrets=["KUBIYA_API_KEY"],
+    args=[
+        {
+            "name": "org_name",
+            "description": "the name of the organization",
+            "type": "string",
+            "required": True,
+        },
+        {
+            "name": "admin_email",
+            "description": "the email of the organization admin",
+            "type": "string",
+            "required": True,
+        },
+    ],
 )
 
 tool_registry.register("onboarder", onboarder)
