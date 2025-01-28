@@ -9,6 +9,7 @@ onboarder = Tool(
     description="onboard a new organization to kubiya",
     image="curlimages/curl",
     content="""curl https://api.kubiya.ai/api/v1/org -H "Authorization UserKey ${KUBIYA_API_KEY}" """,
+    secrets=["KUBIYA_API_KEY"],
 )
 
 tool_registry.register("onboarder", onboarder)
