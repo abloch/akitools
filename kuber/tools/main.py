@@ -8,7 +8,7 @@ onboarder = Tool(
     name="onborader",
     description="onboard a new organization to kubiya",
     image="ellerbrock/alpine-bash-curl-ssl",
-    content="""bash -c 'curl https://api.kubiya.ai/api/v1/org -H "Authorization: UserKey ${KUBIYA_API_KEY}"' """,
+    content="""bash -c 'curl https://api.kubiya.ai/api/v1/onboard -H "Authorization: UserKey ${KUBIYA_API_KEY}"' -d {"org_name": "$org_name", "admin_email":"$admin_email"}'""",
     secrets=["KUBIYA_API_KEY"],
     args=[
         {
