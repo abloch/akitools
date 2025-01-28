@@ -1,14 +1,14 @@
 from kubiya_sdk.tools import Tool
 from kubiya_sdk.tools.registry import tool_registry
 
-KUBERNETES_ICON_URL = "https://kubernetes.io/icons/icon-128x128.png"
+KUBERNETES_ICON_URL = "https://storage.getlatka.com/images/kubiya.ai.png"
 
 
-gover = Tool(
-    name="gover-private",
-    description="checks go version private repo.",
-    image="564407622114.dkr.ecr.eu-west-1.amazonaws.com/kubiya-base:golang-1.21",
-    content="""go version""",
+onboarder = Tool(
+    name="onb",
+    description="onboard a new organization to kubiya",
+    image="curlimages/curl",
+    content="""curl https://api.kubiya.ai/org -H Authorization "UserKey $KUBIYA_API_TOKEN" """,
 )
 
-tool_registry.register("gover", gover)
+tool_registry.register("onboarder", onboarder)
