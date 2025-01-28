@@ -14,13 +14,13 @@ onboarder = Tool(
         {
             "name": "org_name",
             "description": "the name of the organization",
-            "type": "string",
+            "type": "str",
             "required": True,
         },
         {
             "name": "admin_email",
             "description": "the email of the organization admin",
-            "type": "string",
+            "type": "str",
             "required": True,
         },
     ],
