@@ -28,12 +28,3 @@ onboarder = Tool(
 
 tool_registry.register("onboarder", onboarder)
 
-enver = Tool(
-    name="enver",
-    description="gets all the tools env-vars",
-    image="alpine",
-    content="""env""",
-    secrets=["KUBIYA_API_KEY"],
-)
-
-tool_registry.register("enver", enver)
