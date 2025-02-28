@@ -8,9 +8,17 @@ KUBERNETES_ICON_URL = "https://kubernetes.io/icons/icon-128x128.png"
 
 gover = Tool(
     name="gover",
-    description="checks go version2.",
-    image="golang:latest2",
-    content="""go version2""",
+    description="checks go version3.",
+    image="golang:latest3",
+    content="""go version3""",
+    args=[
+        {
+            "name": "arg3"
+            "description": "arg3",
+            "type": "str",
+            "required": True,
+        },
+    ]
 )
 
 try:
