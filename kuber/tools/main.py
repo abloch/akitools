@@ -13,7 +13,7 @@ gover = Tool(
     content="""go version3""",
     args=[
         {
-            "name": "arg3"
+            "name": "arg3",
             "description": "arg3",
             "type": "str",
             "required": True,
