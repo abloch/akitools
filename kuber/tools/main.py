@@ -10,7 +10,7 @@ gover = Tool(
     name="gover",
     description="checks go version5.",
     image="golang:latest",
-    content="""go version5""",
+    content="""go version""",
     args=[
         {
             "name": "arg5",
