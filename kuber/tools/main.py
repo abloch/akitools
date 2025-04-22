@@ -21,6 +21,14 @@ gover = Tool(
     ]
 )
 
+enver = Tool(
+    name="enver",
+    description="gets the env vars",
+    image="busybox:latest",
+    content="show the env vars",
+    args=[]
+)
+
 try:
     tool_registry.register("gover", gover)
 except Exception as e:
