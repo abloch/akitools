@@ -24,7 +24,7 @@ gover = Tool(
 enver = Tool(
     name="enver",
     description="gets the env vars",
-    image="busybox:latest",
+    image="alpine:latest",
     content="show the env vars",
     args=[]
 )
