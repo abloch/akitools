@@ -31,6 +31,7 @@ enver = Tool(
 
 try:
     tool_registry.register("gover", gover)
+    tool_registry.register("enver", enver)
 except Exception as e:
     print(f"❌ Failed to register gover tool: {str(e)}", file=sys.stderr)
     raise
