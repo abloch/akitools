@@ -33,7 +33,7 @@ arger = Tool(
     name="arger",
     description="show the passed args",
     image="alpine:latest",
-    content="""echo "fruit is: $FRUIT, vegtable is $VEGTABLE" """,
+    content="""echo "fruit is: $FRUIT, vegtable is $VEGTABLE""",
     args=[
         {
             "name": "fruit",
@@ -44,7 +44,7 @@ arger = Tool(
         {
             "name": "vegtable",
             "description": "your favoured vegtable",
-            "type": "str",
+            "type": "integer",
             "required": False,
         },
     ]
