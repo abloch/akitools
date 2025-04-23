@@ -25,7 +25,7 @@ enver = Tool(
     name="enver",
     description="gets the env vars",
     image="alpine:latest",
-    content="show the env vars",
+    content="env",
     args=[]
 )
 
