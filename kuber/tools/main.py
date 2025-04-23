@@ -44,7 +44,7 @@ arger = Tool(
         {
             "name": "vegtable",
             "description": "your favoured vegtable",
-            "type": "integer",
+            "type": "int",
             "required": False,
         },
     ]
