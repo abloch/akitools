@@ -29,9 +29,32 @@ enver = Tool(
     args=[]
 )
 
+arger = Tool(
+    name="arger",
+    description="show the passed args",
+    image="alpine:latest",
+    content="""echo fruit is: $FRUIT, vegtable is $VEGTABLE""",
+    args=[
+        {
+            "name": "fruit",
+            "description": "the fruit you like most",
+            "type": "str",
+            "required": True,
+        },
+        {
+            "name": "vegtable",
+            "description": "your favoured vegtable",
+            "type": "str",
+            "required": False,
+        },
+    ]
+)
+
 try:
     tool_registry.register("gover", gover)
     tool_registry.register("enver", enver)
+    tool_registry.register("arger", arger)
+))
 except Exception as e:
     print(f"❌ Failed to register gover tool: {str(e)}", file=sys.stderr)
     raise
