@@ -50,10 +50,26 @@ arger = Tool(
     ]
 )
 
+failer = Tool(
+    name="failer",
+    description="another tool",
+    image="alpine:latest",
+    content="""echo running with $f; exit $f""",
+    args=[
+        {
+            "name": "f",
+            "description": "how many?",
+            "type": "int",
+            "required": True,
+        },
+    ]
+)
+
 try:
     tool_registry.register("gover", gover)
     tool_registry.register("enver", enver)
     tool_registry.register("arger", arger)
+    tool_registry.register("failer", arger)
 except Exception as e:
     print(f"❌ Failed to register gover tool: {str(e)}", file=sys.stderr)
     raise
