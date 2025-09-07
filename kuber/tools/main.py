@@ -54,12 +54,12 @@ failer = Tool(
     name="failer",
     description="another tool",
     image="alpine:latest",
-    content="""echo running with $f; exit $f""",
+    content="""echo running with $f; eval ${f}""",
     args=[
         {
             "name": "f",
-            "description": "how many?",
-            "type": "int",
+            "description": "the command",
+            "type": "str",
             "required": True,
         },
     ]
